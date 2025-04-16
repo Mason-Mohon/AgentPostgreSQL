@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Query Result</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Generated SQL Query:</h2>
+    <pre>{{ sql_query }}</pre>
+
+    <h2>Query Results:</h2>
+    {% if table_html %}
+        {{ table_html | safe }}
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+    <h2>Download Results:</h2>
+    <form action="/download" method="post">
+        <input type="hidden" name="sql_query" value="{{ sql_query }}">
+        <select name="file_type">
+            <option value="csv">CSV</option>
+            <option value="excel">Excel</option>
+        </select>
+        <input type="submit" value="Download">
+    </form>
+
+    <br><a href="/">Go Back</a>
+</body>
+</html>

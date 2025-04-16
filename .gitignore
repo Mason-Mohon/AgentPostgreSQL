@@ -1,0 +1,16 @@
+.env
+.env.*
+
+.DS_Store
+
+__pycache__/
+*.py[cod]
+
+.vscode/
+
+.ipynb_checkpoints/
+
+node_modules/
+
+*.out
+*.log
